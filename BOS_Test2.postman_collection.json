@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "b689173b-65b6-45df-b6cc-19c70fe3f5d0",
+		"name": "BOS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29729751"
+	},
+	"item": [
+		{
+			"name": "Get Transactions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{host}}/api/history/list"
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit/Setor",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"szCurrencyId\": \"SGD\",\r\n  \"decAmount\": 20\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{host}}/api/transaction/deposit/{{accountId}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Withdrawal/Tarik",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"szCurrencyId\": \"SGD\",\r\n  \"decAmount\": 10\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{host}}/api/transaction/withdrawal/{{accountId}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Transfer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"szAccountId\": [\"000108888888\", \"123\"],\r\n  \"szCurrencyId\": \"SGD\",\r\n  \"decAmount\": 10\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{host}}/api/transaction/transfer/{{accountId}}"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "127.0.0.1:3000",
+			"type": "string"
+		},
+		{
+			"key": "accountId",
+			"value": "000109999999",
+			"type": "string"
+		}
+	]
+}
